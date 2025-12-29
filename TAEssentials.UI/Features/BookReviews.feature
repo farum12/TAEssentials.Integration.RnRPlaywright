@@ -4,7 +4,7 @@ Feature: Book Reviews
         Given User navigates to the application
         And API: New Standard User is exists in the system
         #And API: New Book is created in the system
-        #And User is logged in as Standard User
+        And User is logged in as Standard User
     
     Scenario: Standard User can add a book review
         When User navigates to Main Page

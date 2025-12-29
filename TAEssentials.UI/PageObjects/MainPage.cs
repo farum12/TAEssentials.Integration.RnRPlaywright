@@ -6,6 +6,11 @@ namespace TAEssentials.UI.PageObjects
     {
         private readonly IPage _page;
         
+        public MainPage(IPage page)
+        {
+            _page = page;
+        }
+        
         public async Task GotoAsync()
         {
             //TODO: Move URL to configuration

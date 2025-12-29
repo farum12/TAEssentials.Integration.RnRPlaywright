@@ -23,5 +23,12 @@ namespace TAEssentials.UI.StepDefinitions
         {
             await _mainPage.GotoAsync();
         }
+
+    // This step definition uses Cucumber Expressions. See https://github.com/gasparnagy/CucumberExpressions.SpecFlow
+    [Given("User is logged in as Standard User")]
+    public void GivenUserIsLoggedInAsStandardUser()
+    {
+        // Write code here that turns the phrase above into concrete actions
+    }
     }
 }

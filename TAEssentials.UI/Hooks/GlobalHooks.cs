@@ -40,7 +40,7 @@ namespace TAEssentials.UI.Hooks
                 SlowMo = Configuration.BrowserSettings?.SlowMo
             });
 
-            SharedContainer.RegisterInstanceAs(playwright);
+            SharedContainer.RegisterInstanceAs(browser);
         }
 
         [AfterTestRun]
@@ -56,6 +56,7 @@ namespace TAEssentials.UI.Hooks
             //objectContainer.RegisterTypeAs<ClassName, InterFaceName>().InstancePerDependency();
         }
 
+        [BeforeScenario(Order = 2)]
         public async Task ScenarioSetupAsync(Reqnroll.BoDi.IObjectContainer objectContainer, ScenarioContext scenarioContext, FeatureContext featureContext)
         {
             var browser = SharedContainer.Resolve<IBrowser>();
@@ -73,6 +74,7 @@ namespace TAEssentials.UI.Hooks
 
         }
 
+        [BeforeScenario(Order = 3)]
         public async Task StartTracingAsync(IPage page)
         {
             var configuration = ConfigurationProvider.GetConfiguration();

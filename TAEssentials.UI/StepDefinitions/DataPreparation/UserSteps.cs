@@ -14,10 +14,11 @@ namespace TAEssentials.UI.StepDefinitions.DataPreparation
         private readonly AuthClient _authClient;
         private readonly DataGenerator _dataGenerator;
 
-        public UserSteps(ScenarioContext scenarioContext, DataGenerator dataGenerator)
+        public UserSteps(ScenarioContext scenarioContext, DataGenerator dataGenerator, AuthClient authClient)
         {
             _scenarioContext = scenarioContext;
             _dataGenerator = dataGenerator;
+            _authClient = authClient;
         }
 
         

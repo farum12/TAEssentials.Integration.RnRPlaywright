@@ -113,6 +113,9 @@ namespace TAEssentials.UI.Features
 #line 5
         await testRunner.AndAsync("API: New Standard User is exists in the system", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 7
+        await testRunner.AndAsync("User is logged in as Standard User", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
         }
         
         private static global::Reqnroll.Formatters.RuntimeSupport.FeatureLevelCucumberMessages InitializeCucumberMessages()
