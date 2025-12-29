@@ -108,13 +108,10 @@ namespace TAEssentials.UI.Features
 #line 3
     #line hidden
 #line 4
-        await testRunner.GivenAsync("User navigates to application", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+        await testRunner.GivenAsync("User navigates to the application", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 5
         await testRunner.AndAsync("API: New Standard User is exists in the system", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 7
-        await testRunner.AndAsync("User is logged in as Standard User", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
         }
         
@@ -148,15 +145,6 @@ namespace TAEssentials.UI.Features
 #line hidden
 #line 10
         await testRunner.WhenAsync("User navigates to Main Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
-#line hidden
-#line 11
-        await testRunner.AndAsync("User clicks on \"1984\" book View Details button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 12
-        await testRunner.AndAsync("User adds a book review with rating \"4\" and comment \"Great book!\"", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
-#line hidden
-#line 13
-        await testRunner.ThenAsync("The book review should be successfully submitted", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
