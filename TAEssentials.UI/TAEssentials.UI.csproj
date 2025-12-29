@@ -18,12 +18,20 @@
     <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
     <PackageReference Include="Reqnroll" Version="3.2.1" />
+    <PackageReference Include="Reqnroll.NUnit" Version="3.2.1" />
     <PackageReference Include="RestSharp" Version="113.0.0" />
     <PackageReference Include="Bogus" Version="35.5.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TAEssentials.BE\TAEssentials.BE.csproj" />
   </ItemGroup>
 
 </Project>

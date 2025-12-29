@@ -12,7 +12,7 @@ namespace TAEssentials.UI.Extensions
 
         protected override string Identifier => "restResponse";
 
-        public AndConstraint<RestResponseAssertions> HaveStatusCode(HttpStatusCode expectedStatusCode, string because = "", params object[] becauseArgs)
+        public AndConstraint<RestResponseAssertions> HaveHttpStatusCode(HttpStatusCode expectedStatusCode, string because = "", params object[] becauseArgs)
         {
             Execute.Assertion
                 .Given(() => Subject)
