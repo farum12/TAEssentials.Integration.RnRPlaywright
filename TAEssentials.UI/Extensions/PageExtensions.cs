@@ -7,11 +7,11 @@ namespace TAEssentials.UI.Extensions
     {
         public static async Task WaitUntilIsLoadedAsync(this IPage page, ILocator? containerLocator = null)
         {
-            const string spinnerSelector = ".spinner, .loading, .loader, .progress-indicator";
+            const string spinnerSelector = "spinner-icon";
 
             var spinnerLocator = containerLocator == null 
-                ? page.Locator(spinnerSelector)
-                : containerLocator.Locator(spinnerSelector);
+                ? page.GetByTestId(spinnerSelector)
+                : containerLocator.GetByTestId(spinnerSelector);
             
             await spinnerLocator.WaitForAsync(new LocatorWaitForOptions
             {

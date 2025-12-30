@@ -4,17 +4,18 @@ namespace TAEssentials.UI.PageObjects.Components
 {
     public class ProductCard
     {
-        private readonly IPage _page;
+        // Instead of IPage, we use ILocator to scope the product card
+        private readonly ILocator _container;
 
-        public ILocator ProductName => _page.Locator("product-name-XXX");
-        public ILocator ProductAuthor => _page.Locator("product-author-XXX");
-        public ILocator ProductPrice => _page.Locator("product-price-XXX");
-        public ILocator ProductStockStatus => _page.Locator("product-stock-status-XXX");
-        public ILocator ProductViewDetailsButton => _page.Locator("product-view-button-button-XXX");
+        public ILocator ProductName => _container.Locator("[data-testid^='product-name-']");
+        public ILocator ProductAuthor => _container.Locator("[data-testid^='product-author-']");
+        public ILocator ProductPrice => _container.Locator("[data-testid^='product-price-']");
+        public ILocator ProductStockStatus => _container.Locator("[data-testid^='product-stock-status-']");
+        public ILocator ProductViewDetailsButton => _container.Locator("[data-testid^='product-view-button']");
 
-        public ProductCard(IPage page)
+        public ProductCard(ILocator container)
         {
-            _page = page;
+            _container = container;
         }
     }
 }

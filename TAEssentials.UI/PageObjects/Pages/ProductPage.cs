@@ -1,12 +1,12 @@
 using Microsoft.Playwright;
 
-namespace TAEssentials.UI.PageObjects
+namespace TAEssentials.UI.PageObjects.Pages
 {
-    public class ProductsPage
+    public class ProductPage
     {
         private readonly IPage _page;
 
-        public ProductsPage(IPage page)
+        public ProductPage(IPage page)
         {
             _page = page;
         }

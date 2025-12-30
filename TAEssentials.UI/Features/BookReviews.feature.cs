@@ -113,6 +113,9 @@ namespace TAEssentials.UI.Features
 #line 5
         await testRunner.AndAsync("API: New Standard User is exists in the system", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 6
+        await testRunner.AndAsync("API: New Book is exists in the system", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
 #line 7
         await testRunner.AndAsync("User is logged in as Standard User", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
@@ -147,7 +150,13 @@ namespace TAEssentials.UI.Features
     await this.FeatureBackgroundAsync();
 #line hidden
 #line 10
-        await testRunner.WhenAsync("User navigates to Main Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+        await testRunner.WhenAsync("User clicks Products Nav Button in order to navigate to Products Page", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line hidden
+#line 11
+        await testRunner.AndAsync("User searches New Book by its title", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 12
+        await testRunner.AndAsync("User clicks on New Book View Details button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

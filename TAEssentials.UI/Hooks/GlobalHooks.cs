@@ -1,9 +1,10 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Microsoft.Playwright;
 using Reqnroll;
 using TAEssentials.UI.DataClasses.Configuration;
+using TAEssentials.UI.PageObjects.Components;
+using TAEssentials.UI.Utils;
 
 namespace TAEssentials.UI.Hooks
 {
@@ -24,6 +25,12 @@ namespace TAEssentials.UI.Hooks
             _reqnrollOutputHelper = reqnrollOutputHelper;
         }
 
+        [BeforeTestRun(Order = 0)]
+        public static async Task GetAdminToken()
+        {
+            await TokenProvider.RetrieveAndStoreAdminTokenAsync();
+        }
+
         [BeforeTestRun(Order = 1)]
         public static async Task BeroreTestRun(Reqnroll.BoDi.IObjectContainer container)
         {
@@ -31,7 +38,7 @@ namespace TAEssentials.UI.Hooks
             SharedContainer = container;
 
             Configuration = ConfigurationProvider.GetConfigurationFile<Configuration>("appsettings.json", "Configuration");
-            var playwright = await Microsoft.Playwright.Playwright.CreateAsync();
+            var playwright = await Playwright.CreateAsync();
 
             var browser = await playwright.Chromium.LaunchAsync(new Microsoft.Playwright.BrowserTypeLaunchOptions
             {
@@ -54,6 +61,12 @@ namespace TAEssentials.UI.Hooks
         public void RegisterComponents(Reqnroll.BoDi.IObjectContainer objectContainer)
         {
             //objectContainer.RegisterTypeAs<ClassName, InterFaceName>().InstancePerDependency();
+        }
+
+        [BeforeScenario(Order = 1)]
+        public void RegisterFactories(Reqnroll.BoDi.IObjectContainer objectContainer)
+        {
+            objectContainer.RegisterInstanceAs<Func<ILocator, ProductCard>>(loc => new ProductCard(loc));
         }
 
         [BeforeScenario(Order = 2)]

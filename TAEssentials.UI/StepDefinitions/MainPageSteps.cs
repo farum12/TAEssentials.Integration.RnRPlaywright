@@ -1,5 +1,7 @@
 using Reqnroll;
-using TAEssentials.UI.PageObjects;
+using TAEssentials.UI.Constants;
+using TAEssentials.UI.DataClasses;
+using TAEssentials.UI.PageObjects.Pages;
 
 namespace TAEssentials.UI.StepDefinitions
 {
@@ -9,26 +11,27 @@ namespace TAEssentials.UI.StepDefinitions
         private readonly ScenarioContext _scenarioContext;
 
         private readonly MainPage _mainPage;
+        private readonly LoginPage _loginPage;
 
-        public LoginSteps(ScenarioContext scenarioContext, MainPage mainPage)
+        public LoginSteps(ScenarioContext scenarioContext, MainPage mainPage, LoginPage loginPage)
         {
             _scenarioContext = scenarioContext;
             _mainPage = mainPage;
+            _loginPage = loginPage;
         }
 
-        
         [Given(@"User navigates to the application")]
-        [When("User navigates to Main Page")]
         public async Task GivenAPINewStandardUserIsExistsInTheSystem()
         {
             await _mainPage.GotoAsync();
         }
 
-    // This step definition uses Cucumber Expressions. See https://github.com/gasparnagy/CucumberExpressions.SpecFlow
-    [Given("User is logged in as Standard User")]
-    public void GivenUserIsLoggedInAsStandardUser()
-    {
-        // Write code here that turns the phrase above into concrete actions
-    }
+        [Given("User is logged in as Standard User")]
+        public async Task GivenUserIsLoggedInAsStandardUser()
+        {
+            var user = _scenarioContext.Get<User>(ScenarioContextConstants.User);
+            await _mainPage.HeaderBar.LoginNavButton.ClickAsync();
+            await _loginPage.LoginAsync(user.Username, user.Password);
+        }
     }
 }

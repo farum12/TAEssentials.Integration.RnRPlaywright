@@ -6,6 +6,6 @@ namespace TAEssentials.UI.Constants
     public static class ScenarioContextConstants
     {
         public const string User = nameof(User);
-        
+        public const string Book = nameof(Book);
     }
 }
