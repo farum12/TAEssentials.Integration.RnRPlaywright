@@ -11,6 +11,7 @@ namespace TAEssentials.UI.DataClasses
         public List<Book> FakeBooks(int count) => GenerateFakeBooks(count);
         public User FakeUser => GenerateFakeUsers(1).Single();
         public Book FakeBook => GenerateFakeBooks(1).Single();
+        public BookReview FakeBookReview => GenerateFakeBookReviews(1).Single();
 
         private List<User> GenerateFakeUsers(int count)
         {
@@ -37,6 +38,15 @@ namespace TAEssentials.UI.DataClasses
                 .RuleFor(b => b.Type, f => $"{f.PickRandom<BookTypes>().GetAttributeOfType<EnumMemberAttribute>().Value}")
                 .RuleFor(b => b.StockQuantity, f => f.Random.Int(0, 100))
                 .RuleFor(b => b.LowStockThreshold, f => f.Random.Int(1, 10))
+                .Generate(count);
+        }
+
+        private List<BookReview> GenerateFakeBookReviews(int count)
+        {
+            return new Faker<BookReview>()
+                .RuleFor(br => br.ReviewText, f => f.Lorem.Paragraphs(1, 2))
+                //.RuleFor(br => br.Author, f => f.Name.FullName())
+                .RuleFor(br => br.Rating, f => f.Random.Int(1, 5))
                 .Generate(count);
         }
     }

@@ -158,6 +158,12 @@ namespace TAEssentials.UI.Features
 #line 12
         await testRunner.AndAsync("User clicks on New Book View Details button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
+#line 13
+        await testRunner.AndAsync("User clicks on Write a Review button", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
+#line 14
+        await testRunner.AndAsync("User adds a book review with rating \"4\" and some comment", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line hidden
             }
             await this.ScenarioCleanupAsync();
         }

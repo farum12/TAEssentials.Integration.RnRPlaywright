@@ -10,5 +10,6 @@ Feature: Book Reviews
         When User clicks Products Nav Button in order to navigate to Products Page
         And User searches New Book by its title
         And User clicks on New Book View Details button
-        #And User adds a book review with rating "4" and comment "Great book!"
-        #Then The book review should be successfully submitted
+        And User clicks on Write a Review button
+        And User adds a book review with rating "4" and some comment
+        Then The book review should be successfully submitted
