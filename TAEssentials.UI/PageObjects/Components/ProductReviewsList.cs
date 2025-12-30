@@ -22,9 +22,13 @@ namespace TAEssentials.UI.PageObjects.Components
 
         public ProductReview GetProductReviewByAuthor(string authorName)
         {
+            // Znajdujemy kontener review-card, który zawiera userName z danym tekstem
             var reviewContainer = _page
-                .GetByTestId("review-userName")
-                .Filter(new LocatorFilterOptions { HasText = authorName })
+                .Locator("[data-testid^='review-card-']")
+                .Filter(new LocatorFilterOptions 
+                { 
+                    Has = _page.GetByTestId("review-userName").Filter(new LocatorFilterOptions { HasText = authorName })
+                })
                 .First;
 
             return _productReviewFactory(reviewContainer);

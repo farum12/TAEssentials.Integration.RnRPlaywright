@@ -7,7 +7,7 @@ namespace TAEssentials.UI.PageObjects.Components
         // Instead of IPage, we use ILocator to scope the product review
         private readonly ILocator _container;
 
-        private ILocator ReviewRatingStars => _container.Locator("review-rating-stars");
+        private ILocator ReviewRatingStars => _container.GetByTestId("review-rating-stars");
 
         public ILocator ReviewAuthor => _container.GetByTestId("review-userName");
         public ILocator ReviewText => _container.GetByTestId("review-text");
