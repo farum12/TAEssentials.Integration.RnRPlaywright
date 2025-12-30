@@ -1,3 +1,5 @@
+using FluentAssertions;
+using Microsoft.Playwright;
 using Reqnroll;
 using TAEssentials.UI.Constants;
 using TAEssentials.UI.DataClasses;
@@ -59,7 +61,14 @@ namespace TAEssentials.UI.StepDefinitions
         [Then("The book review should be successfully submitted")]
         public async Task ThenTheBookReviewShouldBeSuccessfullySubmitted()
         {
+            var user = _scenarioContext.Get<User>(ScenarioContextConstants.User);
+            var reviewByUser = _productPage.ReviewsGrid.GetProductReviewByAuthor(user.Username);
+            await Assertions.Expect(reviewByUser.ReviewText).ToBeVisibleAsync();
+            await Assertions.Expect(reviewByUser.ReviewText).ToHaveTextAsync(_bookReview.ReviewText);
             
+            var actualRating =  await reviewByUser.GetReviewRatingAsync();
+            actualRating.Should().Be(_bookReview.Rating);
+
         }
     }
 }

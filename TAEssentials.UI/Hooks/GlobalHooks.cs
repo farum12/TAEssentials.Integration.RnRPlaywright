@@ -67,6 +67,7 @@ namespace TAEssentials.UI.Hooks
         public void RegisterFactories(Reqnroll.BoDi.IObjectContainer objectContainer)
         {
             objectContainer.RegisterInstanceAs<Func<ILocator, ProductCard>>(loc => new ProductCard(loc));
+            objectContainer.RegisterInstanceAs<Func<ILocator, ProductReview>>(loc => new ProductReview(loc));
         }
 
         [BeforeScenario(Order = 2)]
