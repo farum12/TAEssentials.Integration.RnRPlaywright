@@ -34,5 +34,11 @@ namespace TAEssentials.UI.StepDefinitions
             await _mainPage.HeaderBar.WishlistNavButton.ClickAsync();
         }
 
+        [When("User clicks on Cart Nav Button in order to navigate to Cart Page")]
+        public async Task WhenUserClicksOnCartNavButtonInOrderToNavigateToCartPage()
+        {
+            await _mainPage.HeaderBar.CartNavButton.ClickAsync();
+        }
+
     }
 }

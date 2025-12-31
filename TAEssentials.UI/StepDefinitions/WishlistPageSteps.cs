@@ -53,7 +53,13 @@ namespace TAEssentials.UI.StepDefinitions
         public async Task WhenUserRefreshesTheWishlistPage()
         {
             await _wishlistPage.ReloadAsync(); 
-            
+
+        }
+
+        [When("User clicks on Move All to Cart button in the Wishlist Page")]
+        public async Task WhenUserClicksOnMoveAllToCartButtonInTheWishlistPage()
+        {
+            await _wishlistPage.MoveAllToCartButton.ClickAsync();
         }
     }
 }
