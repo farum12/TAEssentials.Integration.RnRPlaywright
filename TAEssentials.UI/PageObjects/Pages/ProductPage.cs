@@ -7,6 +7,8 @@ namespace TAEssentials.UI.PageObjects.Pages
     {
         private readonly IPage _page;
 
+        public ILocator WishlistButton => _page.GetByTestId("wishlist-button");
+
         public ProductInfo ProductInfo { get; private set; }
         public ProductReviewsList ReviewsGrid { get; private set; }
         public ProductWriteReview WriteReview { get; private set; }

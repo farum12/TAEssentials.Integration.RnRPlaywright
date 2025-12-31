@@ -28,5 +28,11 @@ namespace TAEssentials.UI.StepDefinitions
             await _mainPage.HeaderBar.ProductsNavButton.ClickAsync();
         }
 
+        [When("User clicks on Wishlist Nav Button in order to navigate to Wishlist Page")]
+        public async Task WhenUserClicksOnWishlistNavButtonInOrderToNavigateToWishlistPage()
+        {
+            await _mainPage.HeaderBar.WishlistNavButton.ClickAsync();
+        }
+
     }
 }

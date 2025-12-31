@@ -70,5 +70,11 @@ namespace TAEssentials.UI.StepDefinitions
             actualRating.Should().Be(_bookReview.Rating);
 
         }
+
+        [When("User clicks on Add to Wishlist button of the Book Details Page")]
+        public async Task WhenUserClicksOnAddToWishlistButtonOfTheBookDetailsPage()
+        {
+            await _productPage.WishlistButton.ClickAsync();
+        }
     }
 }

@@ -68,6 +68,7 @@ namespace TAEssentials.UI.Hooks
         {
             objectContainer.RegisterInstanceAs<Func<ILocator, ProductCard>>(loc => new ProductCard(loc));
             objectContainer.RegisterInstanceAs<Func<ILocator, ProductReview>>(loc => new ProductReview(loc));
+            objectContainer.RegisterInstanceAs<Func<ILocator, WishlistItem>>(loc => new WishlistItem(loc));
         }
 
         [BeforeScenario(Order = 2)]
