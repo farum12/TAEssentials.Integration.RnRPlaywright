@@ -61,6 +61,17 @@ namespace TAEssentials.UI.Hooks
         public void RegisterComponents(Reqnroll.BoDi.IObjectContainer objectContainer)
         {
             //objectContainer.RegisterTypeAs<ClassName, InterFaceName>().InstancePerDependency();
+            // Default type registration is Single Instannce;
+            // If we deal with more than with 1 Component per page we should register them as InstancePerDependency
+            // Example:
+            //objectContainer.RegisterTypeAs<IDropdown, Dropdown>().InstancePerDependency();
+
+            // We need to have Interface for each Component to be able to register them as InstancePerDependency
+            // In PO:
+            // public IDropdown MyDropdown { get; private set; }
+            // In Constructor:
+            // MyDropdown = objectContainer.Resolve<IDropdown>().SetDropdownLocator("locator or ILocator");
+            // MyDropdown = myDropdown.SetDropdownLocator("locator or ILocator");
         }
 
         [BeforeScenario(Order = 1)]
